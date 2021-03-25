@@ -7,3 +7,8 @@ services:
       context: .
       dockerfile: infra/docker/app/Dockerfile
       target: base
+    volumes:
+      - ./:/app
+    ports:
+    - '9501:9501'
+    command: /app/public/server.php

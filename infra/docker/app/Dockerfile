@@ -7,6 +7,8 @@ LABEL maintainer="tshinow@gmail.com"
 ARG swoole_version="4.5.2"
 ARG supervisor_version="1.2.2"
 
+WORKDIR /app
+
 RUN apt-get update && apt-get install vim -y && \
     apt-get install openssl -y && \
     apt-get install libssl-dev -y && \
