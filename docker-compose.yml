@@ -1,0 +1,9 @@
+version: "3.6"
+services:
+  app:
+    container_name: swoole-app
+    image: swoole-practice/app:develop
+    build:
+      context: .
+      dockerfile: infra/docker/app/Dockerfile
+      target: base
