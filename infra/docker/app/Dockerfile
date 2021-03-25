@@ -9,6 +9,9 @@ ARG supervisor_version="1.2.2"
 
 WORKDIR /app
 
+#==========================================================================
+# Base
+#==========================================================================
 RUN apt-get update && apt-get install vim -y && \
     apt-get install openssl -y && \
     apt-get install libssl-dev -y && \
@@ -33,3 +36,10 @@ RUN chmod +x /usr/local/bin/dumb-init
 RUN apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT ["/usr/local/bin/dumb-init", "--", "php"]
+
+#==========================================================================
+# Develop
+#==========================================================================
+FROM base as develop
+
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer

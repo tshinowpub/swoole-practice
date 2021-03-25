@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: infra/docker/app/Dockerfile
-      target: base
+      target: develop
     volumes:
       - ./:/app
     ports:
